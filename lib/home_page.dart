@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:islami_fri/hadeth/HadethTab.dart';
 import 'package:islami_fri/quran/QuranTab.dart';
@@ -47,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               },
               currentIndex: currentPage,
               selectedItemColor: MyThemeData.selectedIconColor,
-              unselectedItemColor: MyThemeData.unSelectedIconColor,
+              unselectedItemColor: MyThemeData.white,
               backgroundColor: MyThemeData.primaryColor,
               items: [
                 BottomNavigationBarItem(
