@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:islami_fri/hadeth/HadethTab.dart';
-import 'package:islami_fri/quran/QuranTab.dart';
+import 'package:islami_fri/quran/quran_tab.dart';
 import 'package:islami_fri/radio/RadioTab.dart';
 import 'package:islami_fri/sebha/SebhaTab.dart';
+import 'package:islami_fri/theme_provider/my_themes.dart';
 
 import 'main.dart';
 
@@ -32,25 +33,24 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
             elevation: 0,
             centerTitle: true,
-            title: Text(
+            title: const Text(
               'Islami',
-              style: TextStyle(color: MyThemeData.colorBlack),
             ),
             backgroundColor: Colors.transparent,
           ),
           backgroundColor: Colors.transparent,
           bottomNavigationBar: Theme(
             data: Theme.of(context)
-                .copyWith(canvasColor: MyThemeData.primaryColor),
+                .copyWith(canvasColor: Theme.of(context).primaryColor),
             child: BottomNavigationBar(
               onTap: (index) {
                 currentPage = index;
                 setState(() {});
               },
               currentIndex: currentPage,
-              selectedItemColor: MyThemeData.selectedIconColor,
-              unselectedItemColor: MyThemeData.white,
-              backgroundColor: MyThemeData.primaryColor,
+              selectedItemColor: MyDarkColors.selectedIconColor,
+              unselectedItemColor: MyDarkColors.white,
+              backgroundColor: Theme.of(context).primaryColor,
               items: [
                 BottomNavigationBarItem(
                     label: 'Quran',

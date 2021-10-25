@@ -134,7 +134,7 @@ class QuranTab extends StatelessWidget {
         Container(
           height: 1,
           width: double.infinity,
-          color: MyThemeData.primaryColor,
+          color: Theme.of(context).primaryColor,
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -146,7 +146,7 @@ class QuranTab extends StatelessWidget {
         Container(
           height: 1,
           width: double.infinity,
-          color: MyThemeData.primaryColor,
+          color: Theme.of(context).primaryColor,
         ),
         Expanded(
           flex: 3,
@@ -156,7 +156,7 @@ class QuranTab extends StatelessWidget {
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 12),
                 width: double.infinity,
-                color: MyThemeData.primaryColor,
+                color: Theme.of(context).primaryColor,
               );
             },
             itemBuilder: (buildContext, index) {

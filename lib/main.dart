@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_fri/home_page.dart';
-import 'package:islami_fri/quran/SuraDetailsScreen.dart';
+import 'package:islami_fri/quran/sura_details.dart';
 import 'package:islami_fri/theme_provider/my_themes.dart';
 import 'package:provider/provider.dart';
 
