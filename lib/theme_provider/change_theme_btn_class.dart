@@ -11,7 +11,7 @@ class ChangeThemeBtnWidget extends StatelessWidget {
     final themeProvider = Provider.of<MyThemeProvider>(context);
 
     return Switch.adaptive(
-        value: themeProvider.isDark,
+        value: themeProvider.isDark(context),
         onChanged: (value) {
           final provider = Provider.of<MyThemeProvider>(context, listen: false);
           provider.toggleTheme(value);
