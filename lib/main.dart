@@ -1,38 +1,44 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:islami_fri/HomePage.dart';
-import 'package:islami_fri/quran/SuraDetailsScreen.dart';
+import 'package:islami_fri/home_page.dart';
+import 'package:islami_fri/quran/sura_details.dart';
+import 'package:islami_fri/theme_provider/my_themes.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
-}
-
-class MyThemeData {
-  static final primaryColor = Color.fromRGBO(183, 147, 95, 1.0);
-  static final selectedIconColor = Color.fromRGBO(8, 8, 8, 1.0);
-  static final unSelectedIconColor = Color.fromRGBO(255, 255, 255, 1.0);
-  static final colorBlack = Color.fromRGBO(5, 5, 5, 1.0);
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          appBarTheme: AppBarTheme(
-            iconTheme: IconThemeData(
-                color: Colors
-                    .black), // set backbutton color here which will reflect in all screens.
-          ),
-          primaryColor: MyThemeData.primaryColor,
-          progressIndicatorTheme:
-              ProgressIndicatorThemeData(color: MyThemeData.primaryColor)),
-      title: 'Flutter Demo',
-      routes: {
-        HomePage.routeName: (buildContext) => HomePage(),
-        SuraDetailsScreen.routeName: (buildContext) => SuraDetailsScreen()
-      },
-      initialRoute: HomePage.routeName,
+
+    return ChangeNotifierProvider(
+      create: (context) => MyThemeProvider(),
+      builder: (context, _) {
+        final provider = Provider.of<MyThemeProvider>(context);
+        return MaterialApp(
+          themeMode: provider.themeMode,
+          theme: MyTheme.lightTheme,
+          darkTheme: MyTheme.darkTheme,
+          title: 'Flutter Demo',
+          routes: {
+            HomePage.routeName: (buildContext) => HomePage(),
+            SuraDetailsScreen.routeName: (buildContext) => SuraDetailsScreen()
+          },
+          initialRoute: HomePage.routeName,
+        );
+      }
     );
   }
+}
+
+String initBgImage(BuildContext context) {
+  var provider = Provider.of<MyThemeProvider>(context);
+  String darkBg = 'assets/images/bg_designed_dark.png';
+  String lightBg = 'assets/images/main_background.png';
+  return provider.isDark(context)? darkBg : lightBg;
 }
