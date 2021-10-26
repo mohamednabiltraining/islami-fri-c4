@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               elevation: 0,
               centerTitle: true,
               title: const Text(
-                'Islami',
+                'اسلامي',
               ),
               backgroundColor: Colors.transparent,
             ),

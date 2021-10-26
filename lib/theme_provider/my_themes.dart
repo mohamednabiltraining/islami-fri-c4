@@ -15,6 +15,9 @@ class MyThemeProvider extends ChangeNotifier {
 class MyTheme {
   static final darkTheme = ThemeData(
       appBarTheme: const AppBarTheme(
+        titleTextStyle: TextStyle(
+          color: MyDarkColors.white
+        ),
         iconTheme: IconThemeData(
             color: MyDarkColors.selectedIconColor,
         ), // set backbutton color here which will reflect in all screens.
