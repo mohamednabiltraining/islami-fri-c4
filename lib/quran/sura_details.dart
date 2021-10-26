@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_fri/theme_provider/my_themes.dart';
 
+import '../main.dart';
+
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'sura_details';
 
@@ -21,7 +23,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_background.png',
+          initBgImage(context),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -32,7 +34,6 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             centerTitle: true,
             title: Text(
               args.suraName,
-              style: const TextStyle(color: MyDarkColors.colorBlack),
             ),
             backgroundColor: Colors.transparent,
           ),
@@ -40,7 +41,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           body: Container(
               margin: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
+                  color: Theme.of(context).colorScheme.secondary,
+                  borderRadius: BorderRadius.circular(12)),
               child: verses.isEmpty
                   ? const Center(child: CircularProgressIndicator())
                   : ListView.separated(

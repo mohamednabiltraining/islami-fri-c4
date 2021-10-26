@@ -1,4 +1,7 @@
+// ignore_for_file: file_names, must_be_immutable, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
+import 'package:islami_fri/quran/quran_tab.dart';
 import 'package:islami_fri/quran/sura_details.dart';
 
 class SuraNameItem extends StatelessWidget {
@@ -15,15 +18,28 @@ class SuraNameItem extends StatelessWidget {
             arguments: SuraDetailsArgs(suraName, suraIndex));
       },
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          //num of ayat
+          Expanded(
             child: Text(
-              '${suraName}',
-              style: TextStyle(fontSize: 24),
+              ayatNumbers[suraIndex].toString(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 24),
             ),
           ),
+          Container(
+            width: 2,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          //name of sura
+          Expanded(
+              child: Text(
+                  suraName,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 24)
+              )
+          )
+          ,
         ],
       ),
     );
